@@ -49,4 +49,19 @@ class SonarSweepTest {
 
         assertThat(numberOfIncreases, is(4));
     }
+
+    @Test
+    public void count_several_deeper_measures_ignoring_superficial_ones() {
+        String measures = """
+                300
+                301
+                250
+                200
+                203
+                567""";
+
+        int numberOfIncreases = new SonarSweep().countIncreases(measures);
+
+        assertThat(numberOfIncreases, is(3));
+    }
 }

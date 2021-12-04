@@ -17,6 +17,7 @@ public class SonarSweep {
                 continue;
             }
             if (measure > lastMeasure) count++;
+            lastMeasure = measure;
         }
         return count;
     }
