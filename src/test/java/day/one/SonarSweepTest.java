@@ -13,4 +13,15 @@ class SonarSweepTest {
         int numberOfIncreases = new SonarSweep().countIncreases(measures);
         assertThat(numberOfIncreases, is(0));
     }
+
+    @Test
+    public void increase_when_a_measure_is_deeper_than_previous_one() {
+        String measures = """
+                300
+                301""";
+
+        int numberOfIncreases = new SonarSweep().countIncreases(measures);
+
+        assertThat(numberOfIncreases, is(1));
+    }
 }
