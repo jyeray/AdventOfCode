@@ -16,8 +16,9 @@ public class Dive {
 
     public void applyCurse(String course) {
         Map<String, CommandExecutor> commandMap = Map.of(
-                "forward", (moves) -> horizontalPosition += moves,
-                "down", (moves) -> depth += moves
+                "forward", moves -> horizontalPosition += moves,
+                "down", moves -> depth += moves,
+                "up", moves -> depth -= moves
         );
         String[] courseCommands = course.split(System.getProperty("line.separator"));
         for (String courseCommand : courseCommands) {
