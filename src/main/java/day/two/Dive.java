@@ -13,7 +13,10 @@ public class Dive {
                 depth += moves;
                 aim += moves;
             },
-            "up", moves -> depth -= moves
+            "up", moves -> {
+                depth -= moves;
+                aim -= moves;
+            }
     );
 
     public int getHorizontalPosition() {

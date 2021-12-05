@@ -177,4 +177,17 @@ class DiveTest {
 
         assertThat(dive.getAim(), is(0));
     }
+
+    @Test
+    void decrease_aim_with_up_command() {
+        Dive dive = new Dive();
+        String plannedCourse = """
+            down 3
+            up 2""";
+
+        dive.applyCurse(plannedCourse);
+
+        assertThat(dive.getAim(), is(1));
+    }
+
 }
