@@ -1,11 +1,9 @@
 package day.two;
 
-import java.util.HashMap;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.Map;
 
 public class Dive {
-    private int horizontalPosition = 0;
+    private Integer horizontalPosition = 0;
     private int depth = 0;
 
     public int getHorizontalPosition() {
@@ -17,17 +15,16 @@ public class Dive {
     }
 
     public void applyCurse(String course) {
+        Map<String, CommandExecutor> commandMap = Map.of(
+                "forward", (moves) -> horizontalPosition += moves,
+                "down", (moves) -> depth += moves
+        );
         String[] courseCommands = course.split(System.getProperty("line.separator"));
         for (String courseCommand : courseCommands) {
             String[] commandParameters = courseCommand.split(" ");
-            String commandMoves = commandParameters[1];
             String commandOrder = commandParameters[0];
-            if (commandOrder.equals("forward")) {
-                horizontalPosition += Integer.parseInt(commandMoves);
-            }
-            if (commandOrder.equals("down")) {
-                depth = Integer.parseInt(commandMoves);
-            }
+            int moves = Integer.parseInt(commandParameters[1]);
+            commandMap.get(commandOrder).apply(moves);
         }
     }
 }
