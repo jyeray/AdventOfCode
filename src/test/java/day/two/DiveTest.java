@@ -36,6 +36,19 @@ class DiveTest {
     }
 
     @Test
+    void move_forward_increases_depth_multiplied_by_aim() {
+        Dive dive = new Dive();
+        String plannedCourse = """
+                down 3
+                forward 5""";
+
+        dive.applyCurse(plannedCourse);
+
+        assertThat(dive.getHorizontalPosition(), is(5));
+        assertThat(dive.getDepth(), is(15));
+    }
+
+    @Test
     void move_forward_several_times() {
         Dive dive = new Dive();
         String plannedCourse = """
