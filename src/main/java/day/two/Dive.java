@@ -12,6 +12,9 @@ public class Dive {
     }
 
     public void applyCurse(String course) {
-        horizontalPosition = 5;
+        String[] courseCommands = course.split(System.getProperty("line.separator"));
+        for (String courseCommand : courseCommands) {
+            horizontalPosition += Integer.parseInt(courseCommand.substring(courseCommand.length() - 1));
+        }
     }
 }

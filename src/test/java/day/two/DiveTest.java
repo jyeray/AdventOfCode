@@ -28,4 +28,16 @@ class DiveTest {
         
         assertThat(dive.getHorizontalPosition(), is(5));
     }
+
+    @Test
+    void move_forward_several_times() {
+        Dive dive = new Dive();
+        String plannedCourse = """
+                forward 5
+                forward 3""";
+
+        dive.applyCurse(plannedCourse);
+
+        assertThat(dive.getHorizontalPosition(), is(8));
+    }
 }
