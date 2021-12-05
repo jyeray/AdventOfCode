@@ -25,7 +25,9 @@ public class Dive {
             if (commandOrder.equals("forward")) {
                 horizontalPosition += Integer.parseInt(commandMoves);
             }
-            depth = Integer.parseInt(commandMoves);
+            if (commandOrder.equals("down")) {
+                depth = Integer.parseInt(commandMoves);
+            }
         }
     }
 }

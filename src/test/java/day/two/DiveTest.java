@@ -61,4 +61,14 @@ class DiveTest {
         assertThat(dive.getDepth(), is(3));
         assertThat(dive.getHorizontalPosition(), is(0));
     }
+
+    @Test
+    void do_not_change_depth_when_moving_forward() {
+        Dive dive = new Dive();
+        String plannedCourse = "forward 57";
+
+        dive.applyCurse(plannedCourse);
+
+        assertThat(dive.getDepth(), is(0));
+    }
 }
