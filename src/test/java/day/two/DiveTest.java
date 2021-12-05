@@ -12,4 +12,10 @@ class DiveTest {
         int horizontalPosition = new Dive().getHorizontalPosition();
         assertThat(horizontalPosition, is(0));
     }
+
+    @Test
+    void start_with_depth_zero() {
+        int depth = new Dive().getDepth();
+        assertThat(depth, is(0));
+    }
 }
