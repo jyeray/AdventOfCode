@@ -40,4 +40,14 @@ class DiveTest {
 
         assertThat(dive.getHorizontalPosition(), is(8));
     }
+
+    @Test
+    void move_forward_far_away() {
+        Dive dive = new Dive();
+        String plannedCourse = "forward 5756";
+
+        dive.applyCurse(plannedCourse);
+
+        assertThat(dive.getHorizontalPosition(), is(5756));
+    }
 }

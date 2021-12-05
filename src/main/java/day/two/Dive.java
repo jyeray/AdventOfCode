@@ -1,5 +1,8 @@
 package day.two;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Dive {
     private int horizontalPosition = 0;
 
@@ -14,7 +17,8 @@ public class Dive {
     public void applyCurse(String course) {
         String[] courseCommands = course.split(System.getProperty("line.separator"));
         for (String courseCommand : courseCommands) {
-            horizontalPosition += Integer.parseInt(courseCommand.substring(courseCommand.length() - 1));
+            String commandMoves = courseCommand.split(" ")[1];
+            horizontalPosition += Integer.parseInt(commandMoves);
         }
     }
 }
