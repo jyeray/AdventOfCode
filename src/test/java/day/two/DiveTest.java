@@ -58,16 +58,6 @@ class DiveTest {
     }
 
     @Test
-    void go_deeper() {
-        Dive dive = new Dive();
-        String plannedCourse = "down 3";
-
-        dive.applyCurse(plannedCourse);
-
-        assertThat(dive.getDepth(), is(3));
-    }
-
-    @Test
     void do_not_change_depth_when_moving_forward() {
         Dive dive = new Dive();
         String plannedCourse = "forward 57";
@@ -85,31 +75,6 @@ class DiveTest {
         dive.applyCurse(plannedCourse);
 
         assertThat(dive.getHorizontalPosition(), is(0));
-    }
-
-    @Test
-    void go_deeper_several_times() {
-        Dive dive = new Dive();
-        String plannedCourse = """
-            down 3
-            down 456
-            down 4""";
-
-        dive.applyCurse(plannedCourse);
-
-        assertThat(dive.getDepth(), is(463));
-    }
-
-    @Test
-    void decrease_depth_with_up_command() {
-        Dive dive = new Dive();
-        String plannedCourse = """
-            down 3
-            up 2""";
-
-        dive.applyCurse(plannedCourse);
-
-        assertThat(dive.getDepth(), is(1));
     }
 
     @Test

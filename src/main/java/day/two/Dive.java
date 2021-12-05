@@ -9,14 +9,8 @@ public class Dive {
     private int aim = 0;
     private final Map<String, CommandExecutor> commandMap = Map.of(
             "forward", moves -> horizontalPosition += moves,
-            "down", moves -> {
-                depth += moves;
-                aim += moves;
-            },
-            "up", moves -> {
-                depth -= moves;
-                aim -= moves;
-            }
+            "down", moves -> aim += moves,
+            "up", moves -> aim -= moves
     );
 
     public int getHorizontalPosition() {
