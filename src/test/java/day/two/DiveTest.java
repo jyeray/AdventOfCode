@@ -18,4 +18,14 @@ class DiveTest {
         int depth = new Dive().getDepth();
         assertThat(depth, is(0));
     }
+
+    @Test
+    void move_forward() {
+        Dive dive = new Dive();
+        String plannedCourse = "forward 5";
+
+        dive.applyCurse(plannedCourse);
+        
+        assertThat(dive.getHorizontalPosition(), is(5));
+    }
 }
