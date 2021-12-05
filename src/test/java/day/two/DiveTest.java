@@ -59,7 +59,6 @@ class DiveTest {
         dive.applyCurse(plannedCourse);
 
         assertThat(dive.getDepth(), is(3));
-        assertThat(dive.getHorizontalPosition(), is(0));
     }
 
     @Test
@@ -70,5 +69,15 @@ class DiveTest {
         dive.applyCurse(plannedCourse);
 
         assertThat(dive.getDepth(), is(0));
+    }
+
+    @Test
+    void do_not_change_horizontal_position_when_going_deeper() {
+        Dive dive = new Dive();
+        String plannedCourse = "down 57";
+
+        dive.applyCurse(plannedCourse);
+
+        assertThat(dive.getHorizontalPosition(), is(0));
     }
 }
