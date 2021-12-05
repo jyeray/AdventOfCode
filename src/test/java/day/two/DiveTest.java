@@ -80,4 +80,18 @@ class DiveTest {
 
         assertThat(dive.getHorizontalPosition(), is(0));
     }
+
+
+    @Test
+    void go_deeper_several_times() {
+        Dive dive = new Dive();
+        String plannedCourse = """
+            down 3
+            down 456
+            down 4""";
+
+        dive.applyCurse(plannedCourse);
+
+        assertThat(dive.getDepth(), is(463));
+    }
 }
