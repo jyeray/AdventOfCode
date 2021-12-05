@@ -28,4 +28,8 @@ public class Dive {
             commandMap.get(commandOrder).apply(moves);
         }
     }
+
+    public int multiply() {
+        return depth * horizontalPosition;
+    }
 }

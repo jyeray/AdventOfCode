@@ -122,4 +122,20 @@ class DiveTest {
         assertThat(dive.getDepth(), is(10));
         assertThat(dive.getHorizontalPosition(), is(15));
     }
+
+    @Test
+    void multiply_depth_and_horizontal_position() {
+        Dive dive = new Dive();
+        String plannedCourse = """
+                forward 5
+                down 5
+                forward 8
+                up 3
+                down 8
+                forward 2""";
+
+        dive.applyCurse(plannedCourse);
+
+        assertThat(dive.multiply(), is(150));
+    }
 }
