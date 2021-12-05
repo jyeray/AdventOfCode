@@ -20,6 +20,12 @@ class DiveTest {
     }
 
     @Test
+    void start_with_zero_aim() {
+        int depth = new Dive().getAim();
+        assertThat(depth, is(0));
+    }
+
+    @Test
     void move_forward() {
         Dive dive = new Dive();
         String plannedCourse = "forward 5";
@@ -137,5 +143,38 @@ class DiveTest {
         dive.applyCurse(plannedCourse);
 
         assertThat(dive.multiply(), is(150));
+    }
+
+    @Test
+    void go_down_increases_aim() {
+        Dive dive = new Dive();
+        String plannedCourse = "down 3";
+
+        dive.applyCurse(plannedCourse);
+
+        assertThat(dive.getAim(), is(3));
+    }
+
+    @Test
+    void increase_aim_several_times() {
+        Dive dive = new Dive();
+        String plannedCourse = """
+            down 3
+            down 456
+            down 4""";
+
+        dive.applyCurse(plannedCourse);
+
+        assertThat(dive.getAim(), is(463));
+    }
+
+    @Test
+    void do_not_change_aim_when_moving_forward() {
+        Dive dive = new Dive();
+        String plannedCourse = "forward 57";
+
+        dive.applyCurse(plannedCourse);
+
+        assertThat(dive.getAim(), is(0));
     }
 }

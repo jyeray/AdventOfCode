@@ -6,9 +6,13 @@ import java.util.Map;
 public class Dive {
     private Integer horizontalPosition = 0;
     private int depth = 0;
+    private int aim = 0;
     private final Map<String, CommandExecutor> commandMap = Map.of(
             "forward", moves -> horizontalPosition += moves,
-            "down", moves -> depth += moves,
+            "down", moves -> {
+                depth += moves;
+                aim += moves;
+            },
             "up", moves -> depth -= moves
     );
 
@@ -37,5 +41,9 @@ public class Dive {
 
     public int multiply() {
         return depth * horizontalPosition;
+    }
+
+    public int getAim() {
+        return aim;
     }
 }
