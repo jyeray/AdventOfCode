@@ -12,11 +12,17 @@ public class BinaryDiagnostic {
     }
 
     private String getGamma(String diagnosisReport) {
-        Pattern firstPosition = Pattern.compile("1\\d\\n?");
-        Pattern secondPosition = Pattern.compile("\\d1\\n?");
+        Pattern firstPosition = Pattern.compile("1\\d{4}\\n?");
+        Pattern secondPosition = Pattern.compile("\\d1\\d{3}\\n?");
+        Pattern thirdPosition = Pattern.compile("\\d{2}1\\d{2}\\n?");
+        Pattern forthPosition = Pattern.compile("\\d{3}1\\d\\n?");
+        Pattern fifthPosition = Pattern.compile("\\d{4}1\\n?");
         return new StringBuilder()
                 .append(getMostCommonValueAt(firstPosition, diagnosisReport))
                 .append(getMostCommonValueAt(secondPosition, diagnosisReport))
+                .append(getMostCommonValueAt(thirdPosition, diagnosisReport))
+                .append(getMostCommonValueAt(forthPosition, diagnosisReport))
+                .append(getMostCommonValueAt(fifthPosition, diagnosisReport))
                 .toString();
     }
 
