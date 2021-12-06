@@ -103,7 +103,7 @@ class DiveTest {
 
         dive.applyCurse(plannedCourse);
 
-        assertThat(dive.getDepth(), is(10));
+        assertThat(dive.getDepth(), is(60));
         assertThat(dive.getHorizontalPosition(), is(15));
     }
 
@@ -120,7 +120,7 @@ class DiveTest {
 
         dive.applyCurse(plannedCourse);
 
-        assertThat(dive.multiply(), is(150));
+        assertThat(dive.multiply(), is(900));
     }
 
     @Test
