@@ -12,18 +12,14 @@ public class BinaryDiagnostic {
     }
 
     private String getGamma(String diagnosisReport) {
-        Pattern firstPosition = Pattern.compile("1\\d{4}\\n?");
-        Pattern secondPosition = Pattern.compile("\\d1\\d{3}\\n?");
-        Pattern thirdPosition = Pattern.compile("\\d{2}1\\d{2}\\n?");
-        Pattern forthPosition = Pattern.compile("\\d{3}1\\d\\n?");
-        Pattern fifthPosition = Pattern.compile("\\d{4}1\\n?");
-        return new StringBuilder()
-                .append(getMostCommonValueAt(firstPosition, diagnosisReport))
-                .append(getMostCommonValueAt(secondPosition, diagnosisReport))
-                .append(getMostCommonValueAt(thirdPosition, diagnosisReport))
-                .append(getMostCommonValueAt(forthPosition, diagnosisReport))
-                .append(getMostCommonValueAt(fifthPosition, diagnosisReport))
-                .toString();
+        int lengthOfReports = diagnosisReport.split(System.getProperty("line.separator"))[0].length();
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = lengthOfReports-1; i >= 0; i--) {
+            String regex = String.format("1\\d{%s}(\\n|$)", i);
+            Pattern pattern = Pattern.compile(regex);
+            stringBuilder.append(getMostCommonValueAt(pattern, diagnosisReport));
+        }
+        return stringBuilder.toString();
     }
 
     private int getMostCommonValueAt(Pattern secondPosition, String diagnosisReport) {
