@@ -36,4 +36,13 @@ class BinaryDiagnosticTest {
 
         assertThat(powerConsumption, is(2));
     }
+
+    @Test
+    void calculate_power_with_just_one_report_of_five_bits() {
+        String diagnosisReport = "01010";
+
+        int powerConsumption = new BinaryDiagnostic().powerConsumption(diagnosisReport);
+
+        assertThat(powerConsumption, is(210));
+    }
 }
