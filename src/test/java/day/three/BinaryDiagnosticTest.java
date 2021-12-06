@@ -45,4 +45,16 @@ class BinaryDiagnosticTest {
 
         assertThat(powerConsumption, is(210));
     }
+
+    @Test
+    void calculate_power_several_reports_of_two_bits() {
+        String diagnosisReport = """
+            00
+            01
+            01""";
+
+        int powerConsumption = new BinaryDiagnostic().powerConsumption(diagnosisReport);
+
+        assertThat(powerConsumption, is(2));
+    }
 }
