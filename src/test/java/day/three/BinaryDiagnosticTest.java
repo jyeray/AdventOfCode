@@ -60,4 +60,25 @@ class BinaryDiagnosticTest {
 
         assertThat(powerConsumption, is(3570));
     }
+
+    @Test
+    void calculate_life_support_rating() {
+        String diagnosisReport = """
+                00100
+                11110
+                10110
+                10111
+                10101
+                01111
+                00111
+                11100
+                10000
+                11001
+                00010
+                01010""";
+
+        int lifeSupportRating = new BinaryDiagnostic().lifeSupportRating(diagnosisReport);
+
+        assertThat(lifeSupportRating, is(230));
+    }
 }

@@ -39,4 +39,8 @@ public class BinaryDiagnostic {
     private int getDecimalValue(String diagnosisReport) {
         return Integer.parseInt(diagnosisReport, 2);
     }
+
+    public int lifeSupportRating(String diagnosisReport) {
+        return 0;
+    }
 }
