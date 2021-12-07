@@ -3,7 +3,13 @@ package day.three;
 import java.util.regex.Pattern;
 
 public class BinaryDiagnostic {
-    public int powerConsumption(String diagnosisReport) {
+    private final String diagnosisReport;
+
+    public BinaryDiagnostic(String diagnosisReport) {
+        this.diagnosisReport = diagnosisReport;
+    }
+
+    public int powerConsumption() {
         String gammaAsString = getGamma(diagnosisReport);
         String epsilonAsString = getEpsilon(gammaAsString);
         int gamma = getDecimalValue(gammaAsString);
@@ -40,11 +46,11 @@ public class BinaryDiagnostic {
         return Integer.parseInt(diagnosisReport, 2);
     }
 
-    public int lifeSupportRating(String diagnosisReport) {
+    public int lifeSupportRating() {
         return 0;
     }
 
-    public int oxygenGeneratorRating(String diagnosisReport) {
+    public int oxygenGeneratorRating() {
         return 1;
     }
 }

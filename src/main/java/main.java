@@ -24,7 +24,7 @@ public class main {
     }
 
     private static void dayThree() {
-        int powerConsumption = new BinaryDiagnostic().powerConsumption(diagnosisReport());
+        int powerConsumption = new BinaryDiagnostic(diagnosisReport()).powerConsumption();
         System.out.printf("Day three: the power consumption is '%s'%n", powerConsumption);
 
     }

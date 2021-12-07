@@ -23,7 +23,7 @@ class BinaryDiagnosticTest {
                 00010
                 01010""";
 
-        int powerConsumption = new BinaryDiagnostic().powerConsumption(diagnosisReport);
+        int powerConsumption = new BinaryDiagnostic(diagnosisReport).powerConsumption();
 
         assertThat(powerConsumption, is(198));
     }
@@ -32,7 +32,7 @@ class BinaryDiagnosticTest {
     void calculate_power_with_just_one_report_of_five_bits() {
         String diagnosisReport = "01010";
 
-        int powerConsumption = new BinaryDiagnostic().powerConsumption(diagnosisReport);
+        int powerConsumption = new BinaryDiagnostic(diagnosisReport).powerConsumption();
 
         assertThat(powerConsumption, is(210));
     }
@@ -44,7 +44,7 @@ class BinaryDiagnosticTest {
             01000
             01010""";
 
-        int powerConsumption = new BinaryDiagnostic().powerConsumption(diagnosisReport);
+        int powerConsumption = new BinaryDiagnostic(diagnosisReport).powerConsumption();
 
         assertThat(powerConsumption, is(210));
     }
@@ -56,7 +56,7 @@ class BinaryDiagnosticTest {
             0101000
             1101010""";
 
-        int powerConsumption = new BinaryDiagnostic().powerConsumption(diagnosisReport);
+        int powerConsumption = new BinaryDiagnostic(diagnosisReport).powerConsumption();
 
         assertThat(powerConsumption, is(3570));
     }
@@ -77,7 +77,7 @@ class BinaryDiagnosticTest {
                 00010
                 01010""";
 
-        int lifeSupportRating = new BinaryDiagnostic().lifeSupportRating(diagnosisReport);
+        int lifeSupportRating = new BinaryDiagnostic(diagnosisReport).lifeSupportRating();
 
         assertThat(lifeSupportRating, is(230));
     }
@@ -88,7 +88,7 @@ class BinaryDiagnosticTest {
             1
             0""";
 
-        int powerConsumption = new BinaryDiagnostic().oxygenGeneratorRating(diagnosisReport);
+        int powerConsumption = new BinaryDiagnostic(diagnosisReport).oxygenGeneratorRating();
 
         assertThat(powerConsumption, is(1));
     }
