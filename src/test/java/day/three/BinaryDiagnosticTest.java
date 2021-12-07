@@ -81,4 +81,15 @@ class BinaryDiagnosticTest {
 
         assertThat(lifeSupportRating, is(230));
     }
+
+    @Test
+    void given_two_numbers_of_one_bit_oxygen_generator_rating_is_1() {
+        String diagnosisReport = """
+            1
+            0""";
+
+        int powerConsumption = new BinaryDiagnostic().oxygenGeneratorRating(diagnosisReport);
+
+        assertThat(powerConsumption, is(1));
+    }
 }

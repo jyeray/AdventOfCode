@@ -43,4 +43,8 @@ public class BinaryDiagnostic {
     public int lifeSupportRating(String diagnosisReport) {
         return 0;
     }
+
+    public int oxygenGeneratorRating(String diagnosisReport) {
+        return 1;
+    }
 }
